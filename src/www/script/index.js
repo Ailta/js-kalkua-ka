@@ -34,30 +34,21 @@ function tlacitko() {
 const calcDisplay = document.getElementById('display');
 
 function addNum(butt) {
-	console.log(clearLastCharOnNextAction);
 	if (clearDisplayOnNextAction) {
 		calcDisplay.value = "";
 		clearDisplayOnNextAction = false;
 	}
-	
-	console.log("1");
 
 	if (clearLastCharOnNextAction == true){
 		let number = calcDisplay.value;
 		number = number.slice(0, -1);
-		console.log("2");
 		calcDisplay.value = number + butt.innerHTML;
 		clearLastCharOnNextAction = false;
 	}
 	else {
 		const num = butt.innerHTML;
-		console.log("3");
 		calcDisplay.value += num;
 	}
-	console.log("4");
-
-	console.log(clearLastCharOnNextAction);
-	
 }
 
 function writeMathOperetion(operation) {
@@ -147,4 +138,24 @@ function comma() {
 
 function negate() {
 	calcDisplay.value = -calcDisplay.value;
+}
+
+function deleteLastChar() {
+	let number = calcDisplay.value;
+	number = number.slice(0, -1);
+
+	if (number.charAt(number.length - 1) == '.') {
+		number = number.slice(0, -1);
+		hasComma = false;
+		clearLastCharOnNextAction = false;
+	}
+
+	calcDisplay.value = number;
+	
+	if (calcDisplay.value == "") {
+		calcDisplay.value = "0";
+		clearDisplayOnNextAction = true;
+		clearLastCharOnNextAction = false;
+		hasComma = false;
+	}
 }
