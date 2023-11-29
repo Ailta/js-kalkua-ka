@@ -16,6 +16,48 @@
 		<button onclick="tlacitko()">Víííc tlačítek...</button>
 	</div>
 	
+	<hr />
+	
+	<input type="number" id="display" value="0" readonly/>
+	<table>
+		<tr>
+			<td><button>%</button></td>
+			<td><button>CE</button></td>
+			<td><button>C</button></td>
+			<td><button><-</button></td>
+		</tr>
+		<tr>
+			<td><button>1/x</button></td>
+			<td><button>x^2</button></td>
+			<td><button>sqrtx</button></td>
+			<td><button>/</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="addNum(this)">7</button></td>
+			<td><button onclick="addNum(this)">8</button></td>
+			<td><button onclick="addNum(this)">9</button></td>
+			<td><button>*</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="addNum(this)">4</button></td>
+			<td><button onclick="addNum(this)">5</button></td>
+			<td><button onclick="addNum(this)">6</button></td>
+			<td><button>-</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="addNum(this)">1</button></td>
+			<td><button onclick="addNum(this)">2</button></td>
+			<td><button onclick="addNum(this)">3</button></td>
+			<td><button onclick="addSymbol()">+</button></td>
+		</tr>
+		<tr>
+			<td><button>+/-</button></td>
+			<td><button onclick="addNum(this)">0</button></td>
+			<td><button>,</button></td>
+			<td><button onclick="equalsSymbol()">=</button></td>
+		</tr>
+	</table>
+	
 	<script src="/script/index.js"></script>
 </body>
 </html>
