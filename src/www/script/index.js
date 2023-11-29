@@ -159,3 +159,23 @@ function deleteLastChar() {
 		hasComma = false;
 	}
 }
+
+function oneOverNum() {
+	let number = 1/calcDisplay.value;
+	calcDisplay.value = number;
+}
+
+function numToThePowerOfTwo() {
+	let number = calcDisplay.value * (calcDisplay.value);
+	calcDisplay.value = number;
+}
+
+function sqrt() {
+	let number = Math.sqrt(calcDisplay.value);
+	calcDisplay.value = number;
+}
+
+function percent() {
+	let number = calcDisplay.value / 100;
+	calcDisplay.value = number;
+}
