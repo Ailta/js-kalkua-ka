@@ -7,6 +7,7 @@ let numbers = [];
 let actions = [];
 let clearDisplayOnNextAction = true;
 let hasComma = false;
+let clearLastCharOnNextAction = false;
 	
 console.log("hello world!");
 	
@@ -33,14 +34,30 @@ function tlacitko() {
 const calcDisplay = document.getElementById('display');
 
 function addNum(butt) {
+	console.log(clearLastCharOnNextAction);
 	if (clearDisplayOnNextAction) {
 		calcDisplay.value = "";
 		clearDisplayOnNextAction = false;
 	}
 	
-	const num = butt.innerHTML;
+	console.log("1");
+
+	if (clearLastCharOnNextAction == true){
+		let number = calcDisplay.value;
+		number = number.slice(0, -1);
+		console.log("2");
+		calcDisplay.value = number + butt.innerHTML;
+		clearLastCharOnNextAction = false;
+	}
+	else {
+		const num = butt.innerHTML;
+		console.log("3");
+		calcDisplay.value += num;
+	}
+	console.log("4");
+
+	console.log(clearLastCharOnNextAction);
 	
-	calcDisplay.value += num;
 }
 
 function writeMathOperetion(operation) {
@@ -51,7 +68,9 @@ function writeMathOperetion(operation) {
 
 	actions.push(operation);
 	clearDisplayOnNextAction = true;
-	
+	clearLastCharOnNextAction = false;
+	hasComma = false;
+
 	console.log(numbers);
 	console.log(actions);
 	
@@ -88,6 +107,8 @@ function equalsSymbol() {
 	numbers = [];
 	actions = [];
 	clearDisplayOnNextAction = true;
+	clearLastCharOnNextAction = false;
+	hasComma = false;
 	
 	console.log(endNum);
 	calcDisplay.value = endNum;
@@ -101,16 +122,29 @@ function clearButton() {
 	calcDisplay.value = 0;
 	endNum = 0;
 	clearDisplayOnNextAction = true;
+	clearLastCharOnNextAction = false;
+	hasComma = false;
 }
 
 function clearDisplayButton() {
 	calcDisplay.value = 0;
 	clearDisplayOnNextAction = true;	
+	clearLastCharOnNextAction = false;
+	hasComma = false;
 }
 
 function comma() {
+	console.log(clearLastCharOnNextAction);
 	if (!hasComma) {
-		calcDisplay.value = calcDisplay.value + ".";
+		let com = '.0';
+		let number = calcDisplay.value;
+		calcDisplay.value = number.concat(com);
 		hasComma = true;
+		clearLastCharOnNextAction = true;
 	}
+	console.log(clearLastCharOnNextAction);
+}
+
+function negate() {
+	calcDisplay.value = -calcDisplay.value;
 }
