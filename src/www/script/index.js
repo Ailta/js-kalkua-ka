@@ -6,6 +6,7 @@ let endNum = 0;
 let numbers = [];
 let actions = [];
 let clearDisplayOnNextAction = true;
+let hasComma = false;
 	
 console.log("hello world!");
 	
@@ -42,12 +43,13 @@ function addNum(butt) {
 	calcDisplay.value += num;
 }
 
-function addSymbol() {
+function writeMathOperetion(operation) {
 	if (endNum == 0)
 		endNum = calcDisplay.value;
 	else
 		numbers.push(calcDisplay.value);
-	actions.push("add");
+
+	actions.push(operation);
 	clearDisplayOnNextAction = true;
 	
 	console.log(numbers);
@@ -60,12 +62,24 @@ function operations(action, number) {
 	if (action == "add") {
 		endNum -= -number;
 	}
+
+	if (action == "subtract") {
+		endNum -= number;
+	}
+
+	if (action == "multiplication") {
+		endNum *= number;
+	}
+
+	if (action == "division") {
+		endNum /= number;
+	}
 }
 
 function equalsSymbol() {
 	for (let i = 0; i <= numbers.length; i++) {
 		if (i == numbers.length)
-			operations("add", calcDisplay.value);
+			operations(actions[i], calcDisplay.value);
 		else
 			operations(actions[i], numbers[i]);
 			
@@ -77,4 +91,26 @@ function equalsSymbol() {
 	
 	console.log(endNum);
 	calcDisplay.value = endNum;
+
+	endNum = 0;
+}
+
+function clearButton() {
+	numbers = [];
+	actions = [];
+	calcDisplay.value = 0;
+	endNum = 0;
+	clearDisplayOnNextAction = true;
+}
+
+function clearDisplayButton() {
+	calcDisplay.value = 0;
+	clearDisplayOnNextAction = true;	
+}
+
+function comma() {
+	if (!hasComma) {
+		calcDisplay.value = calcDisplay.value + ".";
+		hasComma = true;
+	}
 }
