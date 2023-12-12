@@ -1,23 +1,29 @@
-const text = document.getElementById('text');
-const cislo = document.getElementById('cislo');
-const tlacitka = document.getElementById('tlacitka');
+const email = document.getElementById('email');
+const vysledek = document.getElementById('vysledek');
 		
-function fantomas() {
-	text.innerHTML = 'Byl jsem tu, Fantomas!';
-}
+function prihlasit() {
+	const adresa = email.value.trim();
 
-function barva() {
-	text.style.color = 'red';
-}
+	if(!adresa) {
+		return;
+	}
 
-function plus() {
-	cislo.value -= -1;
-}
-
-function minus() {
-	cislo.value -= 1;
-}
-
-function tlacitko() {
-	tlacitka.innerHTML += '<button onclick="tlacitko()">Víííc tlačítek...</button>';
+	fetch('/prihlasit', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({ adresa })
+	})
+	.then(odpoved => odpoved.json())
+	.then(data => {
+		if(data.uspech) {
+			vysledek.innerHTML = 'Přihlášení proběhlo úspěšně.';
+			vysledek.style.color = 'green';
+			email.value = '';
+		} else {
+			vysledek.innerHTML = 'Přihlášení se nezdařilo.';
+			vysledek.style.color = 'red';
+		}
+	});
 }

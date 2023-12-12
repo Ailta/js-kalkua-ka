@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>JS na straně klienta</title>
+	<title>AJAX</title>
 	<meta charset="UTF-8" />
 </head>
 <body>
-	<p id="text" onmouseover="fantomas()">Hello World!</p>
-	<button onclick="barva()">Klikni na mě!</button>
-	<hr />
-	<input type="number" id="cislo" value="0" />
-	<button onclick="plus()">+</button>
-	<button onclick="minus()">-</button>
-	<hr />
-	<div id="tlacitka">
-		<button onclick="tlacitko()">Víííc tlačítek...</button>
-	</div>
-	
+	<h1>Mailing list subscription</h1>
+
+	<input type="text" id="email" placeholder="Napište e-mailovou adresu..." />
+	<button onclick="prihlasit()">Přihlásit k odběru</button>
+	<br />
+	<span id="vysledek"></span>
+
 	<script src="/script/index.js"></script>
 </body>
 </html>
