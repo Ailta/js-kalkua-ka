@@ -1,6 +1,7 @@
 const text = document.getElementById('text');
 const cislo = document.getElementById('cislo');
 const tlacitka = document.getElementById('tlacitka');
+const stats = document.getElementById('stats');
 
 let endNum = 0;
 let numbers = [];
@@ -56,6 +57,10 @@ function addNum(butt) {
 			},
 			body: JSON.stringify({ num })
 		})
+		.then(odpoved => odpoved.json())
+		.then(data => {
+			stats.innerHTML = JSON.stringify(data);
+		});
 	}
 }
 

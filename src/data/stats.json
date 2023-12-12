@@ -3,19 +3,19 @@
         "clicked": 0
     },
     "1": {
-        "clicked": 1
+        "clicked": 36
     },
     "2": {
         "clicked": 0
     },
     "3": {
-        "clicked": 3
+        "clicked": 0
     },
     "4": {
-        "clicked": 0
+        "clicked": 2
     },
     "5": {
-        "clicked": 0
+        "clicked": 1
     },
     "6": {
         "clicked": 0
@@ -27,6 +27,6 @@
         "clicked": 1
     },
     "9": {
-        "clicked": 1
+        "clicked": 0
     }
 }

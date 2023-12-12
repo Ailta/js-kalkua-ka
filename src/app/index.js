@@ -28,6 +28,7 @@ app.post('/addNumStat', (req, res) => {
 	clickedDB++;
 	
 	db.set(num, {clicked: clickedDB});
+	res.json(db.JSON());
 });
 
 module.exports = app;
