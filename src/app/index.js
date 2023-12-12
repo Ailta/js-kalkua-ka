@@ -13,12 +13,24 @@ app.use(express.static('./www'));
 app.post('/prihlasit', (req, res) => {
 	const adresa = req.body.adresa;
 	
-	if(db.has(adresa)) {
+	if(db.has(adresa) && db.get(adresa).subscribed == true) {
 		res.json({uspech: false});
 	} else {
 		db.set(adresa, {subscribed: true});
 		
 		res.json({uspech: true});
+	}
+});
+
+app.post('/odhlasit', (req, res) => {
+	const adresa = req.body.adresa;
+	
+	if(db.has(adresa)) {
+		db.set(adresa, {subscribed: false});
+		
+		res.json({uspech: true});
+	} else {
+		res.json({uspech: false});
 	}
 });
 
