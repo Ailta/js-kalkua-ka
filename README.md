@@ -4,4 +4,4 @@ Aplikace vyžaduje k běhu nainstalovaný Node.js 20 nebo novější.
 
 K nainstalování závislostí spusťte příkaz `npm install`.
 
-Aplikaci lze spustit skriptem `npm run dev`.
+Aplikaci lze spustit skriptem `npm run dev` či `npm run forest`.
