@@ -5,9 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+	"forest": "node server.js"
   },
-  "author": "Jakub Šenkýř",
+  "author": "Jakub Šenkýř & Karel Kříž",
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.2",

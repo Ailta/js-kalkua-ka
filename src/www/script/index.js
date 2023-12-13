@@ -59,7 +59,16 @@ function addNum(butt) {
 		})
 		.then(odpoved => odpoved.json())
 		.then(data => {
-			stats.innerHTML = JSON.stringify(data);
+			stats.innerHTML = "0: " + data[0].clicked +
+			"<br />1: " + data[1].clicked +
+			"<br />2: " + data[2].clicked +
+			"<br />3: " + data[3].clicked +
+			"<br />4: " + data[4].clicked +
+			"<br />5: " + data[5].clicked +
+			"<br />6: " + data[6].clicked +
+			"<br />7: " + data[7].clicked +
+			"<br />8: " + data[8].clicked +
+			"<br />9: " + data[9].clicked;
 		});
 	}
 }
