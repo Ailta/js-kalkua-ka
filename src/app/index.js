@@ -2,7 +2,7 @@ const express = require('express');
 const jsondb = require('simple-json-db');
 
 const app = express();
-const db = new jsondb('./data/stats.json');
+const db = new jsondb('../data/stats.json');
 
 db.set(0, {clicked: 0});
 db.set(1, {clicked: 0});
